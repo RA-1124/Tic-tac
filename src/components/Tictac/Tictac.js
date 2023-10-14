@@ -2,23 +2,23 @@ import "./styles.css"
 import { useState } from "react"
 
  const Square =({propiedad}) => {
-    const [value, setValue] = useState(null)
-    const haciendoClick = () => { 
-        setValue("X")
-    }
-    console.log(value)
+    
+   
+    console.log(propiedad)
     return(
-        <button onClick={haciendoClick} className="square"> {value} </button>
+        <button  className="square"> {propiedad} </button>
     )
  }
 
 export default function Board() {
+    const [value, setValue] = useState("PR")
+   
     return (
     <>
     <div className="row">
-    <Square propiedad={"A"}/>
-    <Square propiedad={"A"}/>
-    <Square propiedad={"a"}/>
+    <Square propiedad={value} />
+    <Square />
+    <Square />
     
     </div>
     <div  className="row">
