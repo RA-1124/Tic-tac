@@ -1,22 +1,28 @@
 import "./styles.css"
+ const Square =({value}) => {
+    return(
+        <button className="square"> {value} </button>
+    )
+ }
 
-export default function Square() {
+export default function Board() {
     return (
     <>
-    <div>
-    <button className="square">X</button>
-    <button className="square">X</button>
-    <button className="square">X</button>
+    <div className="row">
+    <Square/>
+    <Square/>
+    <Square/>
+    
     </div>
-    <div>
-    <button className="square">X</button>
-    <button className="square">X</button>
-    <button className="square">X</button>
+    <div  className="row">
+    <Square/>
+    <Square/>
+    <Square/>
     </div>
-    <div>
-    <button className="square">X</button>
-    <button className="square">X</button>
-    <button className="square">X</button>
+    <div  className="row">
+    <Square/>
+    <Square/>
+    <Square/>
     </div>
 
     </>
