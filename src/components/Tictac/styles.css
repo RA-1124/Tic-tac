@@ -1,10 +1,15 @@
 .square {
     height: 50px;
     width: 50px;
-    font-size: 40px;
+    font-size: 24px;
     background-color: beige;
     border: 1px solid black;
+    padding: 0;
+    text-align: center;
 }
-.row{
+.row:after {
+    clear: both;
+    content: '';
+    display: table;
   
 }
