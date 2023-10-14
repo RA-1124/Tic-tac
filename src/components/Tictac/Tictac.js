@@ -11,25 +11,24 @@ import { useState } from "react"
  }
 
 export default function Board() {
-    const [value, setValue] = useState("PR")
-   
+    const [value, setValue] = useState(['O', "X", 'X', 'X', 'X', 'O', 'O', null, null])
     return (
     <>
     <div className="row">
-    <Square propiedad={value} />
-    <Square />
-    <Square />
+    <Square propiedad={value[0]} />
+    <Square propiedad={value[1]} />
+    <Square propiedad={value[2]} />
     
     </div>
     <div  className="row">
-    <Square/>
-    <Square/>
-    <Square/>
+    <Square propiedad={value[3]} />
+    <Square propiedad={value[4]} />
+    <Square propiedad={value[5]} />
     </div>
     <div  className="row">
-    <Square/>
-    <Square/>
-    <Square/>
+    <Square propiedad={value[6]} />
+    <Square propiedad={value[7]} />
+    <Square propiedad={value[8]} />
     </div>
 
     </>
