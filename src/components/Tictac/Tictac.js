@@ -1,34 +1,38 @@
 import "./styles.css"
 import { useState } from "react"
 
- const Square =({propiedad}) => {
-    
-   
-    console.log(propiedad)
+
+
+ const Square =({valorAlClick ,dato}) => {
+    console.log(dato)
     return(
-        <button  className="square"> {propiedad} </button>
+        <button onClick={valorAlClick} className="square"> {dato} </button>
     )
  }
 
 export default function Board() {
-    const [value, setValue] = useState(['O', "X", 'X', 'X', 'X', 'O', 'O', null, null])
+    const [values, setvalues] = useState([null, null, null, null,null, null, null, null, null])
+    function handleClick() {
+        setvalues("X");
+     }
+    
     return (
     <>
     <div className="row">
-    <Square propiedad={value[0]} />
-    <Square propiedad={value[1]} />
-    <Square propiedad={value[2]} />
+    <Square valorAlClick={handleClick} dato={values}/>
+    <Square valorAlClick={handleClick} dato={values} />
+    <Square valorAlClick={handleClick} dato={values} />
     
     </div>
     <div  className="row">
-    <Square propiedad={value[3]} />
-    <Square propiedad={value[4]} />
-    <Square propiedad={value[5]} />
+    <Square valorAlClick={handleClick} dato={values} />
+    <Square  valorAlClick={handleClick} dato={values}/>
+    <Square  valorAlClick={handleClick} dato={values}/>
     </div>
     <div  className="row">
-    <Square propiedad={value[6]} />
-    <Square propiedad={value[7]} />
-    <Square propiedad={value[8]} />
+    <Square  valorAlClick={handleClick} dato={values}/>
+    <Square valorAlClick={handleClick} dato={values} />
+    <Square  valorAlClick={handleClick} dato={values}/>
     </div>
 
     </>
