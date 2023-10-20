@@ -13,7 +13,8 @@ import { useState } from "react"
 export default function Board() {
     const [values, setvalues] = useState([null, null, null, null,null, null, null, null, null])
     function handleClick() {
-        setvalues(values[0]="O");
+        let prueba = values
+        setvalues(prueba[1]="O");
      }
     
     return (
