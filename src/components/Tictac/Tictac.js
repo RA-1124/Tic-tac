@@ -17,7 +17,7 @@ export default function Board() {
        // setvalues(prueba[1]="OOO");
        //console.log(values)
        //console.log(prueba[3]="00")
-       let prueba = values
+       let prueba = values.slice
        prueba[1] = "0"
        setValues(prueba)
      }
