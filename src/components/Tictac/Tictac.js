@@ -11,23 +11,28 @@ import { useState } from "react"
  }
 
 export default function Board() {
-    const [values, setvalues] = useState([null, null, null, null,null, null, null, null, null])
+    const [values, setValues] = useState([null, null, null, null,null, null, null, null, null])
     function handleClick() {
-        let prueba = values
-        setvalues(prueba[1]="O");
+        //let prueba = values
+       // setvalues(prueba[1]="OOO");
+       //console.log(values)
+       //console.log(prueba[3]="00")
+       let prueba = values
+       prueba[1] = "0"
+       setValues(prueba)
      }
     
     return (
     <>
     <div className="row">
-    <Square valorAlClick={handleClick} dato={values[0]}/>
-    <Square valorAlClick={handleClick} dato={values[1]} />
-    <Square valorAlClick={handleClick} dato={values[2]} />
+    <Square dato={Square[0]} valorAlClick={() => handleClick(0)} />
+    <Square valorAlClick={handleClick(1)} dato={values[1]} />
+    <Square valorAlClick={handleClick(2)} dato={values[2]} />
     
     </div>
     <div  className="row">
-    <Square valorAlClick={handleClick} dato={values[3]} />
-    <Square  valorAlClick={handleClick} dato={values[4]}/>
+    <Square valorAlClick={handleClick(3)} dato={values[3]} />
+    <Square  valorAlClick={handleClick(4)} dato={values[4]}/>
     <Square  valorAlClick={handleClick} dato={values[5]}/>
     </div>
     <div  className="row">
