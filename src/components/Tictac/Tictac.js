@@ -1,8 +1,6 @@
 import "./styles.css"
 import { useState } from "react"
 
-
-
  const Square =({valorAlClick ,dato}) => {
     console.log(dato, 'renderizando hijo')
     return(
