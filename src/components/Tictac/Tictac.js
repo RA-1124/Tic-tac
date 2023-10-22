@@ -4,8 +4,7 @@ import { useState } from "react"
 
 
  const Square =({valorAlClick ,dato}) => {
-    console.log(dato, 'hijo')
-
+    console.log(dato, 'renderizando hijo')
     return(
         <button onClick={valorAlClick} className="square"> {dato} </button>
     )
@@ -15,8 +14,9 @@ export default function Board() {
     const [values, setValues] = useState([null, null, null, null,null, null, null, null, null])
     
     function handleClick(i) {
-        const arrayNuevo = values.slice()
+        const arrayNuevo = [...values]
         arrayNuevo[i] = "X"
+        console.log('renderizandome')
         setValues(arrayNuevo);
      }
     
