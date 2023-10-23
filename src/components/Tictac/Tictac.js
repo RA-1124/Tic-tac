@@ -2,7 +2,9 @@ import "./styles.css"
 import { useState } from "react"
 
  const Square =({valorAlClick ,dato}) => {
-    console.log(dato, 'renderizando hijo')
+    //valor al Click es uan funcion y dato es object hasta que se da click y se convierte a string 
+    console.log(typeof dato, 'tipo de dato')
+    console.log(typeof valorAlClick, "tipo de valorAlClick")
     return(
         <button onClick={valorAlClick} className="square"> {dato} </button>
     )
@@ -10,12 +12,20 @@ import { useState } from "react"
 
 export default function Board() {
     const [values, setValues] = useState([null, null, null, null,null, null, null, null, null])
+    const [click, setClick] = useState(true)
     
     function handleClick(i) {
         const arrayNuevo = [...values]
-        arrayNuevo[i] = "X"
+        //le pasamos un parametro que es indice para que cambie solo el de esa posicion 
+        if (click ) {
+            arrayNuevo[i] = "X"
+        } else {
+            arrayNuevo[i] = "O"
+        }
+       
         console.log('renderizandome')
         setValues(arrayNuevo);
+        setClick(!click )
      }
     
     return (
