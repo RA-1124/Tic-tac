@@ -3,8 +3,8 @@ import { useState } from "react"
 
  const Square =({valorAlClick ,dato}) => {
     //valor al Click es uan funcion y dato es object hasta que se da click y se convierte a string 
-    console.log(typeof dato, 'tipo de dato')
-    console.log(typeof valorAlClick, "tipo de valorAlClick")
+    //console.log(typeof dato, 'tipo de dato')
+   // console.log(typeof valorAlClick, "tipo de valorAlClick")
     return(
         <button onClick={valorAlClick} className="square"> {dato} </button>
     )
@@ -20,6 +20,7 @@ export default function Board() {
             // si el value es true entonces entra al if y e lreturn hace que salga de la funcion 
             return
         } 
+     
         const arrayNuevo = [...values]
         //le pasamos un parametro que es indice para que cambie solo el de esa posicion 
         if (click ) {
@@ -28,11 +29,15 @@ export default function Board() {
             arrayNuevo[i] = "O"
         }
        
-        console.log('renderizandome')
+        //console.log('renderizandome')
         setValues(arrayNuevo);
         setClick(!click )
      }
-    
+     if (calculateWinner(values)) {
+        console.log("alguien gano!")
+    } else {
+        console.log("el juego continua ")
+    }
     return (
     <>
     <div className="row">
@@ -56,7 +61,7 @@ export default function Board() {
     )
   }
 
-  function calculateWinner(squares) {
+  function calculateWinner(values) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -69,8 +74,8 @@ export default function Board() {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+      if (values[a] === values[b] && values[a] === values[c]) {
+        return values[a];
       }
     }
     return null;
