@@ -15,6 +15,11 @@ export default function Board() {
     const [click, setClick] = useState(true)
     
     function handleClick(i) {
+        if ( values[i]) {
+            //si el value es igual a null (false) por lo tanto no entra en la condicion y sigue con lo demas, 
+            // si el value es true entonces entra al if y e lreturn hace que salga de la funcion 
+            return
+        } 
         const arrayNuevo = [...values]
         //le pasamos un parametro que es indice para que cambie solo el de esa posicion 
         if (click ) {
