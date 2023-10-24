@@ -11,12 +11,11 @@ import { useState } from "react"
  }
 
 export default function Board() {
-    const [values, setValues] = useState([null, null, null, null,null, null, null, null, null])
-    const [click, setClick] = useState(true)
+    const [values, setValues] = useState([null, null, null, null,null, null, null, null, null]) // 1 variable de estado
+    const [click, setClick] = useState(true) // otra variable de estado, por que usamos el useState
     
     function handleClick(i) {
         if ( values[i] || calculateWinner(values)) {
-
             //si el value es igual a null (false) por lo tanto no entra en la condicion y sigue con lo demas, 
             // si el value es true entonces entra al if y e lreturn hace que salga de la funcion 
             return
@@ -31,9 +30,11 @@ export default function Board() {
         }
        
         //console.log('renderizandome')
-        setValues(arrayNuevo);
+        setValues(arrayNuevo);// estoy modificando la variable de estado, y que pasa cuando se cambia el valor de una variable de estado?
+                              // el renderiza (se vuelve a construir) para mostrar los valores nuevos
         setClick(!click )
      }
+     
      if (calculateWinner(values)) {
         console.log("alguien gano!")
     } else {
@@ -45,7 +46,6 @@ export default function Board() {
     <Square valorAlClick={() => handleClick(0)} dato={values[0]}/>
     <Square valorAlClick={() => handleClick(1)} dato={values[1]} />
     <Square valorAlClick={() => handleClick(2)} dato={values[2]} />
-    
     </div>
     <div  className="row">
     <Square valorAlClick={() => handleClick(3)} dato={values[3]} />
