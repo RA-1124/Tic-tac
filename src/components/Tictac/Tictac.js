@@ -46,10 +46,31 @@ export default function Board() {
     setValues(arrayNuevo);
     setClick(!click);
   }
+ 
   if (calculateWinner(values)) {
-    const winner = calculateWinner(values)
+    const winner = calculateWinner(values);
     console.log(winner);
-    return <h2> HAS GANADO {winner}!!</h2>;
+    return (
+      <>
+        <h2> HAS GANADO {winner}!!</h2>
+        <button
+          onClick={ ()=> setValues([ null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,])
+        
+          }
+        >
+          {" "}
+          Reiniciar juego
+        </button>
+      </>
+    );
   }
   return (
     <>
