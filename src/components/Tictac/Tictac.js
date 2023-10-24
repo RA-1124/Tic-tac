@@ -49,7 +49,7 @@ export default function Board() {
   if (calculateWinner(values)) {
     const winner = calculateWinner(values)
     console.log(winner);
-    return <h2> Has ganado {winner}!!</h2>;
+    return <h2> HAS GANADO {winner}!!</h2>;
   }
   return (
     <>
