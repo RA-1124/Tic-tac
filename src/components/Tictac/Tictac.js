@@ -1,39 +1,19 @@
 import "./styles.css";
 import { useState } from "react";
 
-const Square = ({ valorAlClick, dato }) => {
-  //valor al Click es uan funcion y dato es object hasta que se da click y se convierte a string
-  //console.log(typeof dato, 'tipo de dato')
-  // console.log(typeof valorAlClick, "tipo de valorAlClick")
-  return (
-    <button onClick={valorAlClick} className="square">
-      {" "}
-      {dato}{" "}
-    </button>
-  );
-};
-
 export default function Board() {
-  const [values, setValues] = useState([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
-  const [click, setClick] = useState(true);
 
+  const [values, setValues] = useState([null, null, null, null, null, null, null, null, null]);//hook o variable de estado
+  const [click, setClick] = useState(true); // hook o variable de estado
+
+  // funcion que se hace llamar al dar click
+  // adentro de la funcion se cambia el estado de las variables
   function handleClick(i) {
     if (values[i] || calculateWinner(values)) {
       //si el value es igual a null (false) por lo tanto no entra en la condicion y sigue con lo demas,
       // si el value es true entonces entra al if y e lreturn hace que salga de la funcion
       return;
     }
-
     const arrayNuevo = [...values];
     //le pasamos un parametro que es indice para que cambie solo el de esa posicion
     if (click) {
@@ -41,12 +21,11 @@ export default function Board() {
     } else {
       arrayNuevo[i] = "O";
     }
-
     //console.log('renderizandome')
     setValues(arrayNuevo);
     setClick(!click);
   }
- 
+
   if (calculateWinner(values)) {
     const winner = calculateWinner(values);
     console.log(winner);
@@ -54,16 +33,8 @@ export default function Board() {
       <>
         <h2> HAS GANADO {winner}!!</h2>
         <button
-          onClick={ ()=> setValues([ null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,])
-        
+          onClick={() =>
+            setValues([null, null, null, null, null, null, null, null, null])
           }
         >
           {" "}
@@ -72,8 +43,12 @@ export default function Board() {
       </>
     );
   }
-  return (
+  const funcionHola = (nombre) => setValues(['X', 'X', null, null, null, null, null, null, null])
+   
+
+   return (
     <>
+        <button onClick={() => funcionHola('nombre')}>PRUEBA</button>
       <div className="row">
         <Square valorAlClick={() => handleClick(0)} dato={values[0]} />
         <Square valorAlClick={() => handleClick(1)} dato={values[1]} />
@@ -92,7 +67,19 @@ export default function Board() {
     </>
   );
 }
-//hola mundooo 
+
+const Square = ({ valorAlClick, dato }) => {
+  //valor al Click es uan funcion y dato es object hasta que se da click y se convierte a string
+  //console.log(typeof dato, 'tipo de dato')
+  // console.log(typeof valorAlClick, "tipo de valorAlClick")
+  return (
+    <button onClick={valorAlClick} className="square">
+      {" "}
+      {dato}{" "}
+    </button>
+  );
+};
+
 function calculateWinner(values) {
   const lines = [
     [0, 1, 2],
