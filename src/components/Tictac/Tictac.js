@@ -81,6 +81,7 @@ const Square = ({ valorAlClick, dato }) => {
 };
 //cambio 2 
 //cambio 3 
+//cambio 4 
 function calculateWinner(values) {
   const lines = [
     [0, 1, 2],
