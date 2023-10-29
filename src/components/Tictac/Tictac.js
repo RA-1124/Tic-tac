@@ -92,7 +92,7 @@ export default function Board() {
     </>
   );
 }
-
+//hola mundooo 
 function calculateWinner(values) {
   const lines = [
     [0, 1, 2],
